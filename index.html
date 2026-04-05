@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Engineer Agent</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Prompt engineer</h1>
+    <p>Describe a topic or task — the agent will craft an elegant, effective prompt ready to paste into any LLM.</p>
+  </header>
+
+  <div class="api-key-row" id="api-key-section">
+    <div class="label">Anthropic API key</div>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off" />
+      <button class="btn" onclick="saveKey()" id="save-key-btn">Save</button>
+    </div>
+    <p class="hint">Your key is stored only in <code>sessionStorage</code> and never sent anywhere except the Anthropic API.</p>
+  </div>
+
+  <div>
+    <div class="label">Topic or description</div>
+    <textarea id="topic" placeholder="e.g. Summarize a research paper for a non-expert audience&#10;e.g. Help me brainstorm startup ideas in renewable energy&#10;e.g. Explain quantum entanglement simply"></textarea>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="label">Output style</div>
+      <select id="style">
+        <option value="concise">Concise &amp; direct</option>
+        <option value="detailed">Detailed &amp; thorough</option>
+        <option value="creative">Creative &amp; exploratory</option>
+        <option value="structured">Structured &amp; analytical</option>
+      </select>
+    </div>
+    <div class="field">
+      <div class="label">Target LLM</div>
+      <select id="llm">
+        <option value="general">Any / general</option>
+        <option value="claude">Claude</option>
+        <option value="gpt">GPT-4/4o</option>
+        <option value="gemini">Gemini</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" onclick="generatePrompt()" id="gen-btn">
+      <span id="btn-icon">✨</span>
+      <span id="btn-text">Engineer prompt</span>
+    </button>
+  </div>
+
+  <div id="output">
+    <div class="divider"></div>
+    <div class="output-card">
+      <div class="output-header">
+        <span class="output-label">Engineered prompt</span>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="copy-feedback" id="copy-msg">Copied!</span>
+          <button class="btn" onclick="copyPrompt()" style="height:28px; font-size:12px; padding:0 12px;">Copy</button>
+        </div>
+      </div>
+      <div class="meta-row" id="meta-badges"></div>
+      <div class="prompt-text" id="prompt-out"></div>
+      <div class="action-row">
+        <button class="btn" onclick="refine()" style="font-size:13px;">Refine ↗</button>
+        <button class="btn" onclick="variant()" style="font-size:13px;">Generate variant ↗</button>
+        <button class="btn" onclick="explain()" style="font-size:13px;">Explain this prompt ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="followup-section" style="display:none;">
+    <div class="divider"></div>
+    <div class="label">Follow-up result</div>
+    <div class="output-card">
+      <div class="prompt-text" id="followup-out" style="font-family: var(--font-sans); font-size:14px;"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
