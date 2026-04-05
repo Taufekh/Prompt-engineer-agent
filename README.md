@@ -4,8 +4,6 @@ A lightweight, zero-dependency AI agent that takes any topic or task description
 
 Built with vanilla HTML/CSS/JS and powered by the [Anthropic API](https://www.anthropic.com/).
 
-![screenshot](screenshot.png)
-
 ---
 
 ## Features
@@ -23,19 +21,9 @@ Built with vanilla HTML/CSS/JS and powered by the [Anthropic API](https://www.an
 
 ## Quick start
 
-### Option 1 — Open directly in a browser
-
-```bash
-git clone https://github.com/your-username/prompt-engineer-agent.git
-cd prompt-engineer-agent
-open index.html          # macOS
-# or: xdg-open index.html  (Linux)
-# or: start index.html      (Windows)
-```
-
 Enter your Anthropic API key in the key field at the top and start engineering prompts.
 
-### Option 2 — Serve locally (recommended for CORS-free dev)
+### Serve locally
 
 ```bash
 # Python 3
@@ -52,7 +40,7 @@ Then open `http://localhost:8080`.
 1. Push this repo to GitHub.
 2. Go to **Settings → Pages**.
 3. Set source to `main` branch, `/ (root)`.
-4. Your app will be live at `https://your-username.github.io/prompt-engineer-agent/`.
+4. Your app will be live at.
 
 ---
 
